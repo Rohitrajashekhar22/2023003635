@@ -1,6 +1,7 @@
 # Notification System
 
-A simple full-stack notification system built for the Affordmed Campus Hiring Evaluation.
+A simple full-stack notification system
+.
 
 ## Tech Stack
 
