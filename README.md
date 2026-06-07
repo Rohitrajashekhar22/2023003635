@@ -38,7 +38,7 @@ GET    /external-notifications
 
 
 **How to Run Backend**
-cd notification-system/backend
+cd notification-system/notification_app_be
 npm install
 node server.js
 
@@ -71,4 +71,3 @@ http://localhost:5173
 <img width="1038" height="860" alt="Screenshot 2026-06-07 122544" src="https://github.com/user-attachments/assets/6db605e2-a9e7-4076-8980-d8b06ee5aa4d" />
 <img width="953" height="587" alt="Screenshot 2026-06-07 122434" src="https://github.com/user-attachments/assets/597dfb9b-b780-4a7f-8b35-0e8f50aed527" />
 <img width="837" height="556" alt="Screenshot 2026-06-07 122426" src="https://github.com/user-attachments/assets/4bb7a934-08e8-4260-810e-7343dbaf6da8" />
-

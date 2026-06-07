@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use((req, res, next) => {
-  Log("backend", "info", "middleware", `${req.method} ${req.url}`);
+  Log("notification_app_be", "info", "middleware", `${req.method} ${req.url}`);
   next();
 });
 
@@ -45,7 +45,7 @@ app.get("/notifications", async (req, res) => {
     });
   } catch (err) {
     console.error(err);
-    Log("backend", "error", "controller", "Get notifications failed");
+    Log("notification_app_be", "error", "controller", "Get notifications failed");
     res.status(500).json({ error: "Server error" });
   }
 });
@@ -62,7 +62,7 @@ app.get("/notifications/:id", async (req, res) => {
 
     res.json(rows[0]);
   } catch (err) {
-    Log("backend", "error", "controller", "Get notification failed");
+    Log("notification_app_be", "error", "controller", "Get notification failed");
     res.status(500).json({ error: "Server error" });
   }
 });
@@ -78,7 +78,7 @@ app.post("/notifications", async (req, res) => {
 
     res.json({ message: "Notification created" });
   } catch (err) {
-    Log("backend", "error", "controller", "Create notification failed");
+    Log("notification_app_be", "error", "controller", "Create notification failed");
     res.status(500).json({ error: "Server error" });
   }
 });
@@ -91,7 +91,7 @@ app.patch("/notifications/:id/read", async (req, res) => {
 
     res.json({ message: "Marked as read" });
   } catch (err) {
-    Log("backend", "error", "controller", "Mark read failed");
+    Log("notification_app_be", "error", "controller", "Mark read failed");
     res.status(500).json({ error: "Server error" });
   }
 });
@@ -102,14 +102,14 @@ app.delete("/notifications/:id", async (req, res) => {
 
     res.json({ message: "Deleted" });
   } catch (err) {
-    Log("backend", "error", "controller", "Delete notification failed");
+    Log("notification_app_be", "error", "controller", "Delete notification failed");
     res.status(500).json({ error: "Server error" });
   }
 });
 
 app.get("/external-notifications", async (req, res) => {
   try {
-    Log("backend", "info", "route", "Fetching external notifications");
+    Log("notification_app_be", "info", "route", "Fetching external notifications");
 
     const token = await getToken();
 
@@ -128,11 +128,11 @@ app.get("/external-notifications", async (req, res) => {
 
     const data = await response.json();
 
-    Log("backend", "info", "route", "External notifications fetched");
+    Log("notification_app_be", "info", "route", "External notifications fetched");
 
     res.json(data);
   } catch (err) {
-    Log("backend", "error", "route", "External API failed");
+    Log("notification_app_be", "error", "route", "External API failed");
     res.status(500).json({ error: "External API failed" });
   }
 });
